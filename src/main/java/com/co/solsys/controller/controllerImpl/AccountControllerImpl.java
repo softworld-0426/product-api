@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,7 @@ public class AccountControllerImpl implements IAccountController {
 
     @Override
     @PostMapping()
-    public ResponseEntity<Account> save(@RequestBody Account account) {
+    public ResponseEntity<Account> save(@Valid @RequestBody Account account) {
         return accountService.save(account);
     }
 
@@ -37,13 +38,13 @@ public class AccountControllerImpl implements IAccountController {
 
     @Override
     @PutMapping("/{id}")
-    public ResponseEntity<Account> update(@PathVariable int id, @RequestBody Account account) {
+    public ResponseEntity<Account> update(@PathVariable int id, @Valid @RequestBody Account account) {
         return accountService.update(id, account);
     }
 
     @Override
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(int id) {
+    public ResponseEntity<String> delete(@PathVariable int id) {
         return accountService.delete(id);
     }
 

@@ -3,6 +3,7 @@ package com.co.solsys.controller;
 import com.co.solsys.model.Account;
 import org.springframework.http.ResponseEntity;
 
+import javax.validation.Valid;
 import java.util.List;
 
 public interface IAccountController {

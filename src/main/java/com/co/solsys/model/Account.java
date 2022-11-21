@@ -1,17 +1,24 @@
 package com.co.solsys.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
+@NoArgsConstructor
 @Entity
-@Table(name = "account")
+@Table(name = "accounts")
 public class Account {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int id;
+    private Integer id;
     private double balance;
+    @Size(max = 1)
     private String status;
+    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
+    private List<Subscription> subscriptions;
 }
