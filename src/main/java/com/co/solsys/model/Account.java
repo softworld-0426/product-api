@@ -21,4 +21,9 @@ public class Account {
     private String status;
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Subscription> subscriptions;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "billingAddress_id")
+    private BillingAddress billingAddress;
+    //@OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
+    //private BillingAddress billingAddress;
 }
