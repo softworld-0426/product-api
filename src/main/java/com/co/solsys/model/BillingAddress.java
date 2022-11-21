@@ -4,8 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,9 +19,6 @@ public class BillingAddress {
     private String postalCode;
     private String providence;
 
-    //@OneToOne(mappedBy = "billingAddress", cascade = CascadeType.ALL)
-    //@OneToOne
-    //private Account account;
     @OneToOne(mappedBy = "billingAddress")
     private Account account;
 }

@@ -1,5 +1,6 @@
 package com.co.solsys.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,9 +22,9 @@ public class Account {
     private String status;
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Subscription> subscriptions;
-    @OneToOne(cascade = CascadeType.ALL)
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "billingAddress_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private BillingAddress billingAddress;
-    //@OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
-    //private BillingAddress billingAddress;
 }
