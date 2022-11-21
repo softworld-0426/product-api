@@ -1,2 +1,2 @@
-# template-spring-boot
-This is a template for spring boot project
+# product-api
+This is an API for spring boot project
